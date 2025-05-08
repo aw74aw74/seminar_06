@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { CssBaseline, Container } from '@mui/material';
+import store from './store';
+import ProductList from './components/ProductList';
 import './App.css';
 
+/**
+ * Главный компонент приложения
+ * Оборачивает все компоненты в Provider для доступа к Redux store
+ */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <CssBaseline />
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <ProductList />
+      </Container>
+    </Provider>
   );
 }
 

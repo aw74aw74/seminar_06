@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Управление каталогом продуктов
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание проекта
 
-## Available Scripts
+Приложение для управления каталогом продуктов, разработанное с использованием React, Redux и Material UI. Приложение позволяет добавлять, удалять, отображать и редактировать продукты в каталоге, а также осуществлять поиск и фильтрацию товаров по различным параметрам.
 
-In the project directory, you can run:
+## Функциональность
 
-### `npm start`
+### Управление продуктами
+- Добавление новых продуктов с указанием названия, описания, цены и доступности
+- Отображение списка всех продуктов в каталоге в виде карточек
+- Удаление продуктов из каталога
+- Редактирование существующих продуктов
+- Изменение статуса доступности продукта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Фильтрация и поиск
+- Поиск продуктов по названию и описанию
+- Фильтрация по диапазону цен с помощью слайдера и текстовых полей
+- Фильтрация по наличию товара (доступен/недоступен)
+- Сортировка продуктов по цене (возрастание/убывание) и по названию
+- Сброс всех фильтров одной кнопкой
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Хранение данных
+- Сохранение данных в localStorage для персистентности между сессиями
+- Возможность сброса данных к исходному состоянию
 
-### `npm test`
+## Технологии
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React - библиотека для создания пользовательских интерфейсов
+- Redux (@reduxjs/toolkit) - для управления состоянием приложения
+- Material UI - библиотека компонентов для создания современного UI
+- React Redux - для интеграции React с Redux
 
-### `npm run build`
+## Структура проекта
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── components/         # Компоненты React
+│   ├── ProductForm.jsx # Компонент формы для добавления/редактирования продуктов
+│   ├── ProductList.jsx # Компонент для отображения списка продуктов
+│   ├── ProductItem.jsx # Компонент для отображения отдельного продукта
+│   └── ProductFilters.jsx # Компонент для фильтрации и поиска продуктов
+├── store/              # Файлы Redux
+│   ├── index.js        # Конфигурация хранилища Redux
+│   └── productsSlice.js # Слайс для управления продуктами и хранения данных
+├── public/             # Публичные файлы
+│   └── img/            # Изображения продуктов
+├── App.js              # Главный компонент приложения
+└── index.js            # Точка входа в приложение
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Запуск проекта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Для запуска проекта выполните следующие команды:
 
-### `npm run eject`
+```bash
+# Установка зависимостей
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Запуск приложения в режиме разработки
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Дополнительная информация
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Проект создан с использованием [Create React App](https://github.com/facebook/create-react-app).
 
-## Learn More
+## Сборка проекта
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Для сборки проекта в продакшн-режиме используйте команду:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+Собранные файлы будут размещены в папке `build`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Особенности реализации
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Использование React Hooks (в том числе useState, useMemo, useEffect) для управления состоянием
+- Использование Redux с Redux Toolkit для централизованного управления состоянием
+- Использование компонентов Material UI для создания современного интерфейса
+- Реализация адаптивного дизайна с использованием CSS Grid
+- Сохранение данных в localStorage и их автоматическая загрузка при запуске приложения
